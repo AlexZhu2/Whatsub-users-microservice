@@ -20,19 +20,19 @@ app/
 - services: Business logic and persistence adapters
 - utils: Logger and settings utilities
 
-## Getting Started
+## Getting Started (conda)
 
-1. Create and activate a virtual environment
+1. Create and activate a conda environment
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+conda create -n whatsub-users python=3.12 -y
+conda activate whatsub-users
 ```
 
 2. Install dependencies
 
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 3. Configure environment variables
@@ -46,6 +46,13 @@ cp .env.example .env
 
 ```bash
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+Alternative: module mode or direct file
+```bash
+python -m app.main
+# or
+python app/main.py
 ```
 
 5. Open API docs
