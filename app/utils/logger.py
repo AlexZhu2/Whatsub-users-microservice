@@ -5,7 +5,7 @@ import structlog
 from app.utils.settings import Settings
 
 
-def init_logger(settings: Settings):
+def init_logger(settings: Settings) -> structlog.stdlib.BoundLogger:
     timestamper = structlog.processors.TimeStamper(fmt="iso")
 
     logging.basicConfig(
