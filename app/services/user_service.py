@@ -22,6 +22,7 @@ class InMemoryUserService:
             "id": user_id,
             "email": payload.email,
             "full_name": payload.full_name,
+            "primary_phone": payload.primary_phone,
         }
         # NOTE: Do not store plaintext passwords; this is a placeholder for demo
         self.users[user_id] = user
@@ -36,6 +37,8 @@ class InMemoryUserService:
             existing["email"] = payload.email
         if payload.full_name is not None:
             existing["full_name"] = payload.full_name
+        if payload.primary_phone is not None:
+            existing["primary_phone"] = payload.primary_phone
         self.users[user_id] = existing
         self.logger.info("user_updated", user_id=user_id)
         return User(**existing)
